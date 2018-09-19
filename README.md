@@ -1,6 +1,9 @@
 # spring-boot-jpa-mysql-one-to-many
  
- On a commencé dans le tutorial précédant l'intégration d'une base de données(MySQL) en utilisant Spring Data et Hibernate. On continuera avec MySQL avec l'étude du mapping entre les tables et on commence par la relation One to Many entre la table Salarie et une nouvelle table Departement.
+ On a commencé dans le tutorial précédent l'intégration d'une base de données(MySQL) en utilisant Spring Data et Hibernate.
+ https://github.com/WifekRaissi/spring-boot-jpa-mysql
+ 
+On continuera avec MySQL en étudiant le mapping entre les tables et on commence par la relation One to Many entre la table Salarie et une nouvelle table Departement.
 
 L'architecture de l'application est la suivante.
 
@@ -19,9 +22,7 @@ L'architecture de l'application est la suivante.
  ```
  
 
-
-Après la configuration de MySQL on étudie dans cette partie le mapping des différentes realations entre les tables et on commence par la relation One to Many entre la table Salarie et une nouvelle table departement.
-Pour ce fait on ajoute 
+ 
 
 ## Departement.java
 
@@ -90,7 +91,7 @@ public class Departement {
 
 cascade = CascadeType.ALL: indique que Salarie dépend du departement pour toutes les opérations(ajout, modification, supression,..) par exemple si on supprime un département on va supprimer automatiquement tous ses salariés.
 
- fetch = FetchType.LAZY: indique que la relation doit être chargée à la demande 
+ fetch = FetchType.LAZY: indique que la relation doit être chargée à la demande. 
  
 ## Salarie.java
 
@@ -185,7 +186,6 @@ public class Salarie {
 }
     
 ```
-    
     
   ##   Repository
   ##      DepartementRepository.java
@@ -531,9 +531,18 @@ public class SalariesController {
     }
 }
   ```
-  
- # III. Mapping One to One
+
+ ## Tests avec Postman:
  
- Après le mapping One to Many on s'intèresse dans cette partie au mapping One To One.
+ Ajout d'un nouveau salarié à un département.
  
+  ![alt text](https://github.com/WifekRaissi/spring-boot-jpa-mysql-one-to-many/blob/master/src/main/resources/images/ajoutSalarie.PNG) 
   
+  Liste des salariés par département.
+  
+  ![alt text](https://github.com/WifekRaissi/spring-boot-jpa-mysql-one-to-many/blob/master/src/main/resources/images/listSalariesparDepartement.PNG) 
+
+  
+  ## Conclusion
+  On réalisé dans ce tutorial le mapping entre les tables Salarie et departement par la relation One to Many. On passe au mapping de la relation One to One dans le tutorial suivant.
+
