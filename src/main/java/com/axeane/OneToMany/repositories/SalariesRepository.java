@@ -13,6 +13,6 @@ public interface SalariesRepository extends JpaRepository<Salarie, Long> {
     List<Salarie> findSalarieByNom(String nom);
 
     Salarie findSalarieById(Long id);
-    Page<Salarie> findByDepartementId(Long postId, Pageable pageable);
+    Page<Salarie> findByDepartementId(Long departementId, Pageable pageable);
 
 }

@@ -82,10 +82,11 @@ public class SalariesController {
         salariesService.deleteSalaried(departementId, salarieId);
         return new ResponseEntity(HttpStatus.OK);
     }
+
     @GetMapping("/salaries/{id}")
     public ResponseEntity findSalarie(@PathVariable(value = "id") Long id) {
-       Salarie salarie =salariesService.findSalarieById(id);
+        Salarie salarie = salariesService.findSalarieById(id);
 
-        return new ResponseEntity<>(salarie,HttpStatus.OK);
+        return new ResponseEntity<>(salarie, HttpStatus.OK);
     }
 }
