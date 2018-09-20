@@ -546,3 +546,6 @@ public class SalariesController {
   ## Conclusion
   On réalisé dans ce tutorial le mapping entre les tables Salarie et departement par la relation One to Many. On passe au mapping de la relation One to One dans le tutorial suivant.
 
+https://github.com/WifekRaissi/spring-boot-jpa-mysql-one-to-one
+
+
