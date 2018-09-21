@@ -6,29 +6,17 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.zalando.problem.ProblemModule;
-import org.zalando.problem.validation.ConstraintViolationProblemModule;
 
 import javax.validation.Valid;
 
 @RestController
 @Api(value = "gestion des salariés", description = "Operations pour la gestion des salariés")
 public class SalariesController {
-
-    @Bean
-    public Jackson2ObjectMapperBuilderCustomizer problemObjectMapperModules() {
-        return jacksonObjectMapperBuilder -> jacksonObjectMapperBuilder.modules(
-                new ProblemModule(),
-                new ConstraintViolationProblemModule());
-    }
-
     private final SalariesService salariesService;
 
     public SalariesController(SalariesService salariesService) {

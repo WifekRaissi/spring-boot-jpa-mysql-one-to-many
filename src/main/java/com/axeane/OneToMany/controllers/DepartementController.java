@@ -15,8 +15,6 @@ import javax.validation.Valid;
 
 @RestController
 public class DepartementController {
-
-
     private final DepartementService departementService;
 
     public DepartementController(DepartementService departementService) {
