@@ -1,6 +1,5 @@
 package com.axeane.OneToMany.controllers;
 
-
 import com.axeane.OneToMany.model.Departement;
 import com.axeane.OneToMany.services.DepartementService;
 import io.swagger.annotations.ApiOperation;
@@ -55,7 +54,8 @@ public class DepartementController {
     @PutMapping("/departements")
     public ResponseEntity updateDepartement(@Valid @RequestBody Departement departement) {
         departementService.updateDepartement(departement);
-        return new ResponseEntity<>(departement, HttpStatus.OK); }
+        return new ResponseEntity<>(departement, HttpStatus.OK);
+    }
 
     @ApiOperation(value = "delete a department")
     @ApiResponses(value = {

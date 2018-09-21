@@ -26,7 +26,6 @@ public class Salarie {
     @NotNull
     private String prenom;
 
-    @NotNull
     private BigDecimal salaire;
 
     @NotEmpty
@@ -35,7 +34,7 @@ public class Salarie {
     private String adresse;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id", nullable = false)
+    @JoinColumn(name = "departement_id")
     private Departement departement;
 
     public long getId() {
@@ -107,6 +106,12 @@ public class Salarie {
         id = count.incrementAndGet();
     }
 
+    public Salarie(@NotEmpty @NotNull String nom, @NotEmpty @NotNull String prenom, @NotEmpty @NotNull @Size(max = 256, message = "address should have maximum 256 characters") String adresse) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+    }
+
     @Override
     public String toString() {
         return "Salarie{" +
@@ -125,29 +130,5 @@ public class Salarie {
         this.salaire = salaire;
         this.adresse = adresse;
         this.departement = departement;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Salarie salarie = (Salarie) o;
-        if (id != salarie.id) return false;
-        if (!nom.equals(salarie.nom)) return false;
-        if (!prenom.equals(salarie.prenom)) return false;
-        if (!salaire.equals(salarie.salaire)) return false;
-        if (!adresse.equals(salarie.adresse)) return false;
-        return departement.equals(salarie.departement);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + nom.hashCode();
-        result = 31 * result + prenom.hashCode();
-        result = 31 * result + salaire.hashCode();
-        result = 31 * result + adresse.hashCode();
-        result = 31 * result + departement.hashCode();
-        return result;
     }
 }

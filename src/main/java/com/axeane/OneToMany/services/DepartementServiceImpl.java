@@ -40,5 +40,4 @@ public class DepartementServiceImpl implements DepartementService {
             return departement;
         });
     }
-
 }

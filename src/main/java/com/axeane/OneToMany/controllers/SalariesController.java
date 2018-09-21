@@ -1,6 +1,5 @@
 package com.axeane.OneToMany.controllers;
 
-
 import com.axeane.OneToMany.model.Salarie;
 import com.axeane.OneToMany.services.SalariesService;
 import io.swagger.annotations.Api;
